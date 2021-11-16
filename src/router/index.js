@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
+import Blocks from '../views/blocks/Blocks.vue'
+import BlockDetails from '../views/blocks/BlockDetails.vue'
 
 const routes = [
   {
@@ -14,7 +16,18 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+  },
+  {
+    path: '/blocks',
+    name: 'Blocks',
+    component: Blocks
+  },
+  {
+    path: '/block/:id',
+    name: 'BlockDetails',
+    component: BlockDetails,
+    props: true
+  },
 ]
 
 const router = createRouter({
